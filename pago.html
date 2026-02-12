@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Finalizar Compra | ESENCIA PURA</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: #f4f4f4; color: #333; }
+        header { background: #fff; padding: 20px; text-align: center; border-bottom: 1px solid #ddd; }
+        nav a { margin: 0 15px; text-decoration: none; color: #555; font-weight: bold; }
+
+        .checkout-container { max-width: 900px; margin: 40px auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 20px; }
+        
+        /* Resumen del Pedido */
+        .resumen, .formulario-pago { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h3 { border-bottom: 2px solid #f4f4f4; padding-bottom: 10px; color: #b08d57; }
+
+        .item-pedido { display: flex; justify-content: space-between; margin: 20px 0; padding-bottom: 10px; border-bottom: 1px solid #eee; }
+        .total { font-size: 1.5rem; font-weight: bold; text-align: right; color: #1a1a1a; }
+
+        /* Formulario */
+        form { display: flex; flex-direction: column; }
+        label { margin-top: 15px; font-weight: bold; font-size: 0.85em; }
+        input { padding: 12px; margin-top: 5px; border: 1px solid #ddd; border-radius: 8px; outline: none; }
+        input:focus { border-color: #b08d57; }
+        
+        .fila-doble { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+
+        .btn-pagar { 
+            margin-top: 30px; background: #1a1a1a; color: white; padding: 15px; border: none; 
+            border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s;
+        }
+        .btn-pagar:hover { background: #b08d57; }
+
+        /* Estilo tarjeta simulada */
+        .visa-icon { font-style: italic; color: #1a1f71; font-weight: bold; font-size: 1.2rem; }
+
+        @media (max-width: 768px) { .checkout-container { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>ESENCIA PURA</h2>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+</header>
+
+<div class="checkout-container">
+    <div class="resumen">
+        <h3>Tu Pedido</h3>
+        <p style="font-size: 0.9em; color: #666;">Has seleccionado una fragancia de nuestra colección exclusiva.</p>
+        
+        <div class="item-pedido">
+            <span>Fragancia Seleccionada:</span>
+            <span>la elegida</span>
+        </div>
+        <div class="item-pedido">
+            <span>Envío Premium (Sostenible)</span>
+            <span style="color: green;">Gratis</span>
+        </div>
+        <div class="item-pedido" style="border: none;">
+            <span>Impuestos incluidos</span>
+            <span>IVA 21%</span>
+        </div>
+        <div class="total">Total: Ver en tienda</div>
+        <p style="font-size: 0.8em; color: #999; margin-top: 20px;">* Al ser una simulación, el pago no será realizado realmente.</p>
+    </div>
+ <!-- Estilo de pago una vez que pulses el perfume  -->
+    <div class="formulario-pago">
+        <h3>Método de Pago <span class="visa-icon">VISA / MC</span></h3>
+        <form action="#" onsubmit="alert('Simulación de pago completada!'); return false;">
+            <label>Nombre en la tarjeta</label>
+            <input type="text" placeholder="Nombre completo" required>
+
+            <label>Número de tarjeta</label>
+            <input type="text" placeholder="0000 0000 0000 0000" maxlength="16" required>
+
+            <div class="fila-doble">
+                <div>
+                    <label>Caducidad</label>
+                    <input type="text" placeholder="MM/AA" maxlength="5" required>
+                </div>
+                <div>
+                    <label>CVC</label>
+                    <input type="text" placeholder="123" maxlength="3" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-pagar">CONFIRMAR PAGO SEGURO</button>
+        </form>
+        <p style="text-align: center; font-size: 0.7em; margin-top: 15px; color: #888;">Pago seguro</p>
+    </div>
+</div>
+
+</body>
+</html>

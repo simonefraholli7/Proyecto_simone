@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo Premium | ESENCIA PURA</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: #f9f9f9; color: #333; }
+        header { background: #fff; padding: 20px; text-align: center; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 1000; }
+        nav a { margin: 0 15px; text-decoration: none; color: #555; font-weight: bold; }
+
+        .controles { text-align: center; padding: 40px 20px; background: #fff; }
+        .controles h3 { margin-bottom: 20px; letter-spacing: 1px; color: #1a1a1a; }
+        .controles label {
+            padding: 12px 25px; background: #f0f0f0; margin: 5px;
+            display: inline-block; border-radius: 30px; cursor: pointer;
+            transition: 0.3s; font-size: 0.9em; font-weight: 500;
+        }
+        
+        input[type="radio"] { display: none; }
+
+        /* Aqui se hacen las clases para los filtros */
+        #todos:checked ~ .controles label[for="todos"],
+        #floral:checked ~ .controles label[for="floral"],
+        #fresco:checked ~ .controles label[for="fresco"],
+        #intenso:checked ~ .controles label[for="intenso"],
+        #dulce:checked ~ .controles label[for="dulce"] {
+            background: #b08d57; color: white; box-shadow: 0 4px 10px rgba(176, 141, 87, 0.3);
+        }
+
+        .grid-productos { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; padding: 40px; max-width: 1200px; margin: auto;
+        }
+
+        /* Lógica de filtrado  */
+        #floral:checked ~ .grid-productos .card:not(.cat-floral),
+        #fresco:checked ~ .grid-productos .card:not(.cat-fresco),
+        #intenso:checked ~ .grid-productos .card:not(.cat-intenso),
+        #dulce:checked ~ .grid-productos .card:not(.cat-dulce) {
+            display: none;
+        }
+
+        /* Estilo de las Tarjetas */
+        .card { 
+            background: white; border-radius: 15px; overflow: hidden; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: center; 
+            padding-bottom: 25px; transition: 0.4s ease;
+            text-decoration: none; color: inherit; display: block;
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        
+        .card img { width: 100%; height: 320px; object-fit: cover; border-bottom: 1px solid #eee; }
+        .etiqueta { font-size: 0.75em; color: #b08d57; font-weight: bold; text-transform: uppercase; margin-top: 20px; letter-spacing: 1px; }
+        .card h3 { margin: 10px 0; font-size: 1.4rem; }
+        .precio { font-weight: bold; font-size: 1.3rem; color: #1a1a1a; background: #fdf8f0; display: inline-block; padding: 5px 15px; border-radius: 10px; }
+        
+        .aviso-click { font-size: 0.7em; color: #999; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>ESENCIA PURA</h2>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html" style="color:#b08d57">Productos</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+</header>
+
+<input type="radio" name="filtro" id="todos" checked>
+<input type="radio" name="filtro" id="floral">
+<input type="radio" name="filtro" id="fresco">
+<input type="radio" name="filtro" id="intenso">
+<input type="radio" name="filtro" id="dulce">
+
+
+<div class="controles">
+    <h3>EXPLORA NUESTRA COLECCIÓN</h3>
+    <label for="todos">Todas</label>
+    <label for="floral">Florales</label>
+    <label for="fresco">Frescos</label>
+    <label for="intenso">Intensos</label>
+    <label for="dulce">Dulces</label>
+</div>
+
+
+
+<main class="grid-productos">
+    <a href="pago.html" class="card cat-intenso">
+        <img src="https://static2.sabinacdn.com/68628-thickbox_default/dior-homme-intense-eau-de-parfum.jpg" alt="P1">
+        <p class="etiqueta">Intenso</p>
+        <h3>Dior Homme Intense</h3>
+        <div class="precio">112.95€</div>
+        <p class="aviso-click">Pulsa para comprar</p>
+    </a>
+
+    <a href="pago.html" class="card cat-dulce">
+        <img src="https://imagedelivery.net/-uGyOE-KT6ZqyPmPyh8-iw/2f4f3b00-9bdf-47b9-11ee-fd7b476fc300/public" alt="P2">
+        <p class="etiqueta">Dulce</p>
+        <h3>Jean Paul Gaultier Elixir</h3>
+        <div class="precio">105.00€</div>
+        <p class="aviso-click">Pulsa para comprar</p>
+    </a>
+
+    <a href="pago.html" class="card cat-floral">
+        <img src="https://resources.claroshop.com/medios-plazavip/t1/1702572396LUIS2jpg" alt="P3">
+        <p class="etiqueta">Floral</p>
+        <h3>LV Les Sable Roses</h3>
+        <div class="precio">279.00€</div>
+        <p class="aviso-click">Pulsa para comprar</p>
+    </a>
+
+    <a href="pago.html" class="card cat-floral">
+        <img src="https://www.druni.es/media/catalog/product/4/5/4579.jpg" alt="P3">
+        <p class="etiqueta">Floral</p>
+        <h3>Chanel n.5</h3>
+        <div class="precio">130.00€</div>
+        <p class="aviso-click">Pulsa para comprar</p>
+    </a>
+
+    <a href="pago.html" class="card cat-dulce">
+        <img src="https://parfumexquis.com/cdn/shop/files/MaisonFrancisKurkdjian_sGrandSoir_3.jpg?v=1746214962&width=1400" alt="P4">
+        <p class="etiqueta">Dulce</p>
+        <h3>MFK Grand Soir</h3>
+        <div class="precio">235.99€</div>
+        <p class="aviso-click">Pulsa para comprar</p>
+    </a>
+
+    <a href="pago.html" class="card cat-fresco">
+        <img src="https://labelleperfumes.com/cdn/shop/files/XERJOFF-ERBA-GOLD-AD_800x.webp?v=1718910682" alt="P5">
+        <p class="etiqueta">Fresco</p>
+        <h3>Xerjoff Erba Gold</h3>
+        <div class="precio">249.99€</div>
+        <p class="aviso-click">Pulsa para comprar</p>
+    </a>
+
+    <a href="pago.html" class="card cat-fresco">
+        <img src="https://www.chanel.com/puls-img/1750768790390-onepdpeditopushdm974x1298px052xjpg_2596x1948.jpg" alt="P5">
+        <p class="etiqueta">Fresco</p>
+        <h3>Bleu de Chanel</h3>
+        <div class="precio">82.99€</div>
+        <p class="aviso-click">Pulsa para comprar</p>
+    </a>
+
+    <a href="pago.html" class="card cat-intenso">
+        <img src="https://www.myperfumeshop.ae/cdn/shop/products/clive-christian-noble-xxi-collection-art-blonde-amber-perfume-perfume-cologne-337909.jpg?v=1702710933&width=1080" alt="P6">
+        <p class="etiqueta">Intenso</p>
+        <h3>Clive Cristian Blonde Amber</h3>
+        <div class="precio">410.00€</div>
+        <p class="aviso-click">Pulsa para comprar</p>
+    </a>
+
+    <a href="pago.html" class="card cat-intenso">
+        <img src="https://bakkaris.com/wp-content/uploads/2021/09/Y0996460_E05_ZHC-1024x683.jpg" alt="P6">
+        <p class="etiqueta">Intenso</p>
+        <h3>Sauvage Elixir</h3>
+        <div class="precio">197.99€</div>
+        <p class="aviso-click">Pulsa para comprar</p>
+    </a>
+</main>
+
+</body>
+</html>
